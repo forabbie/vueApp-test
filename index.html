@@ -4,56 +4,50 @@
 <head>
     <title>Basic Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
-
-    <style>
-        .box {
-            padding: 100px 0;
-            width: 400px;
-            text-align: center;
-            background-color: darkgray;
-            margin: 20px;
-            display: inline-block;
-        }
-
-        .title {
-            font-weight: bold;
-            font-size: large;
-            margin: 0px 10px;
-        }
-
-        .imgHolder {
-            width: 300px;
-            height: 400px;
-        }
-    </style>
-
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-    <h1>Vue App Basic</h1>
+    <nav>
+        <ul>
+            <li><h1>My Books</h1></li>
+        </ul>
+    </nav>
 
-    <div id="app">
+    <div id="app"> 
 
         <!-- <a v-bind:href="http://">Click me!</a> -->
         <button @click="toggleShowBookTitle()">
-            <span v-if="showBooks">Hide Books</span>
-            <span v-else>Show Books</span>
+            <span v-if="showBooks">Hide My Books</span>
+            <span v-else>Show My Books</span>
         </button>
-        <div id="" v-if="showBooks">
-            <ul>
-                <li v-for="book in books">
-                    <img class="imgHolder" :src="book.img" :alt="book.title">
-                    <p class=""> <span class="title"> {{ book.title }} :</span> <span> {{ book.author }}</span></p>
 
-                </li>
-            </ul>
+        <div id="bookListHolder" v-if="showBooks">
+            <div id="bookList" @click="toggleFav(book)" v-for="book in books" :class="{ fav: book.isFav }">
+                <img class="imgHolder" :src="book.img" :alt="book.title">
+                <span class="title"> {{ book.title }} </span> <br>
+                <span class="author"> {{ book.author }}</span>
+            </div>
         </div>
+
+        <button @click="toggleFavBooks()">
+            <span v-if="showFavBooks" >Hide My Favorite books</span>
+            <span v-else>Show My Favorite books</span>
+        </button>
+        <div id="bookListHolder" v-if="showFavBooks">
+            <div id="bookList" @click="toggleFav(book)" v-for="book in filteredBooks" :class="{ fav: book.isFav }">
+                <img class="imgHolder" :src="book.img" :alt="book.title">
+                <span class="title"> {{ book.title }} </span> <br>
+                <span class="author"> {{ book.author }}</span>
+            </div>
+        </div>
+        
         <!-- <div v-show="showBooks"> Currently Showing Books</div> -->
         <!-- <button v-on:click="age++">Increase age</button>
         <button v-on:click="age--">Decrease age</button>
         <button v-on:click="changeTitle('Title Changed')">Change Book Title</button> -->
 
-
+ 
         <button @click="toggleMouseEvents()">
             <span v-if="showMouseEvents">Hide MouseEvents</span>
             <span v-else>Show MouseEvents</span>

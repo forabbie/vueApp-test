@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5E454B;
+}
+
+li {
+    float: left;
+}
+
+li h1 {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+}
+/* 
+li a:hover {
+    background-color: #111;
+} */
+
+.box {
+    padding: 100px 0;
+    background-color: #eee;
+    width: 400px;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+}
+
+.author {
+    font-size: medium;
+    font-style: italic;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.imgHolder {
+    border: solid black 2px;
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 200px;
+}
+
+#bookListHolder {
+    display: grid;
+    /* grid-template-columns: 300px 300px 300px;  */
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    padding: 10px;
+}
+
+/* #grid-container {
+    display: grid;
+    grid-template-columns: auto ;
+    padding: 10px ;
+    width: 100%;
+} */
+
+#bookList {
+    background-color: #F3F0D7;
+    box-shadow: 5px 10px 10px 1px lightslategray;
+    padding: 10px 20px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+    color: #5E454B;
+    transition: transform 250ms;
+}
+
+#bookList.fav {
+    color: #5E454B;
+    background-color: #CEE5D0;
+}
+
+#bookList:hover {
+    transform: translateY(-10px);
+}
+
+/* BTN */
+
+button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    width: auto;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  button:hover span {
+    padding-right: 25px;
+  }
+  
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
